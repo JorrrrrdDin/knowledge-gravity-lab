@@ -5,12 +5,12 @@
 <h1 align="center">Knowledge Gravity Lab</h1>
 
 <p align="center">
-  <strong>A Codex skill for turning messy notes into a practical knowledge map.</strong><br/>
-  Find center topics, orphan notes, noisy files, overgrown clusters, and concrete cleanup actions.
+  <strong>Map the hidden gravity of your notes.</strong><br/>
+  Find center topics, orphan islands, noisy fragments, overgrown clusters, and the next cleanup move.
 </p>
 
 <p align="center">
-  <img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-111827">
+  <img alt="Knowledge map" src="https://img.shields.io/badge/knowledge-map-111827">
   <img alt="Markdown notes" src="https://img.shields.io/badge/notes-Markdown-2563EB">
   <img alt="Obsidian ready" src="https://img.shields.io/badge/Obsidian-ready-7C3AED">
   <img alt="No runtime API" src="https://img.shields.io/badge/runtime_API-none-16A34A">
@@ -18,20 +18,20 @@
 
 ---
 
-Knowledge Gravity Lab is a shareable Codex skill for knowledge hygiene. Point it
-at a folder of Markdown or text notes and it generates a local map of how your
-knowledge base is shaped: what pulls attention, what floats alone, what looks
-noisy, and what should be cleaned next.
+Knowledge Gravity Lab is a local note-field analyzer for knowledge hygiene.
+Point it at a folder of Markdown or text notes and it generates a practical map
+of how your knowledge base is shaped: what pulls attention, what floats alone,
+what looks noisy, and what should be cleaned next.
 
 It is built for:
 
-- Obsidian vaults;
-- research notes;
-- invention logs;
-- paper cards;
-- memory exports;
-- worldbuilding or writing notebooks;
-- any messy Markdown folder that needs structure.
+- Obsidian vaults
+- research notes
+- invention logs
+- paper cards
+- memory exports
+- worldbuilding or writing notebooks
+- any messy Markdown folder that needs structure
 
 ## What It Produces
 
@@ -47,7 +47,7 @@ Running the bundled analyzer creates:
 
 ## Why It Feels Different
 
-Most note tools show a graph. This skill asks a more useful question:
+Most note tools show a graph. Knowledge Gravity asks a more useful question:
 
 > Which notes are pulling the whole knowledge field, and which ones are just drifting?
 
@@ -57,11 +57,23 @@ a perfect graph. The point is to make the next cleanup action obvious.
 
 ## Install
 
-Clone or download this repository, then copy it into your Codex skills folder:
+Clone or download this repository:
 
 ```powershell
 git clone https://github.com/JorrrrrdDin/knowledge-gravity-lab.git
-Copy-Item -Recurse .\knowledge-gravity-lab "$env:USERPROFILE\.codex\skills\knowledge-gravity-lab"
+cd knowledge-gravity-lab
+```
+
+Run the analyzer directly:
+
+```powershell
+python scripts\analyze_corpus.py --input "C:\path\to\vault" --output "D:\knowledge-gravity-output"
+```
+
+Optional: install it into a local assistant workflow folder:
+
+```powershell
+Copy-Item -Recurse . "<assistant-workflows>\knowledge-gravity-lab" -Force
 ```
 
 The installed folder should look like this:
@@ -77,13 +89,7 @@ knowledge-gravity-lab/
 
 ## Use
 
-Ask Codex something like:
-
-```text
-Use Knowledge Gravity Lab on my Obsidian vault and tell me what to clean first.
-```
-
-Or run the analyzer directly:
+Run it from the command line:
 
 ```powershell
 python scripts\analyze_corpus.py --input "C:\path\to\vault" --output "D:\knowledge-gravity-output"
@@ -93,6 +99,12 @@ Skip low-value folders when needed:
 
 ```powershell
 python scripts\analyze_corpus.py --input "C:\path\to\vault" --output "D:\knowledge-gravity-output" --skip-dir "archive" --skip-dir "templates"
+```
+
+If installed into an assistant workflow folder, you can also ask:
+
+```text
+Use Knowledge Gravity Lab on my Obsidian vault and tell me what to clean first.
 ```
 
 ## Example Feedback Loop
@@ -119,23 +131,23 @@ That makes the workflow simple:
 This is a practical knowledge-hygiene workflow. It is not legal advice, not a
 patent filing package, and not a guarantee that a note is true or false.
 
-The skill uses heuristic analysis to help humans review their own knowledge
-base. Treat its outputs as decision support, not ground truth.
+Knowledge Gravity uses heuristic analysis to help humans review their own
+knowledge base. Treat its outputs as decision support, not ground truth.
 
 ## Repository Contents
 
 ```text
 .
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-├── scripts/
-│   └── analyze_corpus.py
-├── references/
-│   ├── public-boundary.md
-│   └── existing-rights-check.md
-└── assets/
-    └── knowledge-gravity-banner.svg
+|-- SKILL.md
+|-- agents/
+|   `-- openai.yaml
+|-- scripts/
+|   `-- analyze_corpus.py
+|-- references/
+|   |-- public-boundary.md
+|   `-- existing-rights-check.md
+`-- assets/
+    `-- knowledge-gravity-banner.svg
 ```
 
 ## License
