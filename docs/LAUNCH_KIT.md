@@ -24,6 +24,8 @@ zettelkasten, python, offline-first, cli
 
 ## X / Twitter
 
+Attach `assets/action-sheet-screenshot.png` or `assets/workflow-demo.gif`.
+
 ```text
 Built a tiny tool for a problem every Obsidian user has: a vault full of notes and
 no idea what to clean first.
@@ -45,6 +47,8 @@ not a vibe.
 ```
 
 ## Reddit
+
+Post the screenshot in the comments or use the GIF as the lead asset.
 
 Title:
 
@@ -75,6 +79,8 @@ https://github.com/JorrrrrdDin/knowledge-gravity-lab
 
 ## Show HN
 
+Use the README screenshot/GIF as the visual proof when cross-posting elsewhere.
+
 Title:
 
 ```text
@@ -97,3 +103,8 @@ move per note (add links, split, merge, archive) toward an 80-point target.
 It's explicitly not a truth detector — the "review queue" means "a human should
 look," not "this is wrong." Happy to talk about the scoring choices.
 ```
+
+## Visual Assets
+
+- `assets/action-sheet-screenshot.png`: rendered action sheet with the 80-point cleanup loop.
+- `assets/workflow-demo.gif`: 10-second command -> generated files -> action sheet demo.

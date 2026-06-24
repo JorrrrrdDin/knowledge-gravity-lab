@@ -2,6 +2,14 @@
   <img src="assets/knowledge-gravity-banner.svg" alt="Knowledge Gravity Lab banner" width="100%" />
 </p>
 
+<p align="center">
+  <img src="assets/action-sheet-screenshot.png" alt="Rendered Knowledge Gravity action sheet with 80-point cleanup loop" width="100%" />
+</p>
+
+<p align="center">
+  <img src="assets/workflow-demo.gif" alt="Knowledge Gravity command line workflow demo" width="100%" />
+</p>
+
 <h1 align="center">Knowledge Gravity Lab</h1>
 
 <p align="center">
@@ -35,10 +43,6 @@ Point it at a Markdown or Obsidian folder and it tells you:
 - the next cleanup action per note
 
 One Python file. No API, no runtime LLM, deterministic.
-
-<p align="center">
-  <img src="assets/output-preview.svg" alt="Knowledge Gravity report and action sheet preview" width="100%" />
-</p>
 
 It is built for:
 

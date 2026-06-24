@@ -2,6 +2,14 @@
   <img src="assets/knowledge-gravity-banner.svg" alt="Knowledge Gravity Lab banner" width="100%" />
 </p>
 
+<p align="center">
+  <img src="assets/action-sheet-screenshot.png" alt="Rendered Knowledge Gravity action sheet with 80-point cleanup loop" width="100%" />
+</p>
+
+<p align="center">
+  <img src="assets/workflow-demo.gif" alt="Knowledge Gravity command line workflow demo" width="100%" />
+</p>
+
 <h1 align="center">Knowledge Gravity Lab</h1>
 
 <p align="center">
@@ -34,10 +42,6 @@ Markdown 또는 Obsidian 폴더를 넣으면 다음을 알려줍니다.
 - 노트별 다음 정리 행동
 
 Python 파일 하나로 실행됩니다. API도 없고, 런타임 LLM 호출도 없으며, 같은 vault에는 같은 결과가 나오는 deterministic 방식입니다.
-
-<p align="center">
-  <img src="assets/output-preview.svg" alt="Knowledge Gravity report and action sheet preview" width="100%" />
-</p>
 
 이 도구는 특정 AI에 묶여 있지 않습니다. 커맨드라인에서 바로 실행할 수 있고, Codex, Claude, 또는 로컬 마크다운 지침과 Python 스크립트를 읽고 실행할 수 있는 어떤 assistant workflow에서도 사용할 수 있습니다.
 
