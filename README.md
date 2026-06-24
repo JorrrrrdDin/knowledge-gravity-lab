@@ -13,7 +13,12 @@
   <img alt="Knowledge map" src="https://img.shields.io/badge/knowledge-map-111827">
   <img alt="Markdown notes" src="https://img.shields.io/badge/notes-Markdown-2563EB">
   <img alt="Obsidian ready" src="https://img.shields.io/badge/Obsidian-ready-7C3AED">
+  <img alt="Works with Codex and Claude" src="https://img.shields.io/badge/assistants-Codex%20%7C%20Claude%20%7C%20CLI-7C3AED">
   <img alt="No runtime API" src="https://img.shields.io/badge/runtime_API-none-16A34A">
+</p>
+
+<p align="center">
+  English | <a href="README.ko.md">한국어</a>
 </p>
 
 ---
@@ -32,6 +37,10 @@ It is built for:
 - memory exports
 - worldbuilding or writing notebooks
 - any messy Markdown folder that needs structure
+
+It is not locked to one assistant. Use it directly from the command line, or
+install the workflow files for Codex, Claude, or any assistant that can read a
+local Markdown instruction file and run the bundled Python script.
 
 ## What It Produces
 
@@ -70,7 +79,8 @@ Run the analyzer directly:
 python scripts\analyze_corpus.py --input "C:\path\to\vault" --output "D:\knowledge-gravity-output"
 ```
 
-Optional: install it into a local assistant workflow folder:
+Optional: install it into a local assistant workflow folder. The same core files
+can be used with Codex, Claude, or any compatible local-agent workflow:
 
 ```powershell
 Copy-Item -Recurse . "<assistant-workflows>\knowledge-gravity-lab" -Force
