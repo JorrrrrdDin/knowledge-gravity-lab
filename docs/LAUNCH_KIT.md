@@ -24,7 +24,7 @@ zettelkasten, python, offline-first, cli
 
 ## X / Twitter
 
-Attach `assets/action-sheet-screenshot.png` or `assets/workflow-demo.gif`.
+Attach `assets/result-table-screenshot.png` or `assets/workflow-demo.gif`.
 
 ```text
 Built a tiny tool for a problem every Obsidian user has: a vault full of notes and
@@ -106,5 +106,6 @@ look," not "this is wrong." Happy to talk about the scoring choices.
 
 ## Visual Assets
 
-- `assets/action-sheet-screenshot.png`: rendered action sheet with the 80-point cleanup loop.
-- `assets/workflow-demo.gif`: 10-second command -> generated files -> action sheet demo.
+- `assets/result-table-screenshot.png`: rendered 80-point feedback loop table.
+- `assets/action-sheet-screenshot.png`: larger rendered action sheet screenshot.
+- `assets/workflow-demo.gif`: 10-second command -> generated files -> result table demo.

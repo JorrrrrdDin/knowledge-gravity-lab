@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/action-sheet-screenshot.png" alt="Rendered Knowledge Gravity action sheet with 80-point cleanup loop" width="100%" />
+  <img src="assets/result-table-screenshot.png" alt="Rendered 80-point feedback loop table" width="100%" />
 </p>
 
 <p align="center">
