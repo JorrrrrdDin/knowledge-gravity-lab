@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Map the hidden gravity of your notes.</strong><br/>
-  Find center topics, orphan islands, noisy fragments, overgrown clusters, and the next cleanup move.
+  Point it at your Obsidian vault. Get back what's central, what's noise, and what to clean next.
 </p>
 
 <p align="center">
@@ -23,10 +23,22 @@
 
 ---
 
-Knowledge Gravity Lab is a local note-field analyzer for knowledge hygiene.
-Point it at a folder of Markdown or text notes and it generates a practical map
-of how your knowledge base is shaped: what pulls attention, what floats alone,
-what looks noisy, and what should be cleaned next.
+Knowledge Gravity Lab is a tiny offline tool for a problem every serious note
+taker eventually has: a vault full of notes and no idea what to clean first.
+
+Point it at a Markdown or Obsidian folder and it tells you:
+
+- what is central
+- what is orphaned
+- what looks like noise
+- which clusters are getting too large
+- the next cleanup action per note
+
+One Python file. No API, no runtime LLM, deterministic.
+
+<p align="center">
+  <img src="assets/output-preview.svg" alt="Knowledge Gravity report and action sheet preview" width="100%" />
+</p>
 
 It is built for:
 

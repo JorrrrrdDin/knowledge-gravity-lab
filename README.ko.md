@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>노트 속에 숨어 있는 지식의 중력장을 그립니다.</strong><br/>
-  중심 주제, 고립된 노트, 노이즈 조각, 비대해진 클러스터, 다음 정리 행동을 찾아냅니다.
+  Obsidian vault를 넣으면 무엇이 중심이고, 무엇이 노이즈이며, 무엇부터 정리할지 알려줍니다.
 </p>
 
 <p align="center">
@@ -23,7 +23,21 @@
 
 ---
 
-Knowledge Gravity Lab은 마크다운 노트 폴더를 분석해 지식 베이스의 형태를 보여주는 로컬 노트 중력장 분석기입니다. Obsidian vault, 연구 메모, 발명 노트, 글쓰기 설정집, 논문 카드처럼 시간이 지나며 복잡해지는 노트 묶음을 읽고 무엇이 중심을 잡고 있는지, 무엇이 고립되어 있는지, 무엇이 노이즈인지, 어디부터 정리해야 하는지 보여줍니다.
+Knowledge Gravity Lab은 진지하게 노트를 쌓는 사람이 결국 마주치는 문제를 위한 작은 오프라인 도구입니다. 노트는 많아졌는데 무엇이 핵심이고, 무엇이 방치됐고, 어디부터 정리해야 할지 모를 때 사용합니다.
+
+Markdown 또는 Obsidian 폴더를 넣으면 다음을 알려줍니다.
+
+- 중심 주제
+- 고립된 노트
+- 노이즈로 보이는 파일
+- 너무 커진 클러스터
+- 노트별 다음 정리 행동
+
+Python 파일 하나로 실행됩니다. API도 없고, 런타임 LLM 호출도 없으며, 같은 vault에는 같은 결과가 나오는 deterministic 방식입니다.
+
+<p align="center">
+  <img src="assets/output-preview.svg" alt="Knowledge Gravity report and action sheet preview" width="100%" />
+</p>
 
 이 도구는 특정 AI에 묶여 있지 않습니다. 커맨드라인에서 바로 실행할 수 있고, Codex, Claude, 또는 로컬 마크다운 지침과 Python 스크립트를 읽고 실행할 수 있는 어떤 assistant workflow에서도 사용할 수 있습니다.
 

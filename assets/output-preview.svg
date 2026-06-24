@@ -1,0 +1,58 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="760">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#E0F2FE"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="760" rx="34" fill="url(#bg)"/>
+
+  <text x="80" y="76" fill="#0F172A" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="800">What you get back</text>
+  <text x="80" y="116" fill="#475569" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20">A report plus an action sheet: central notes, orphans, noise, and the next move per note.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="160" width="540" height="500" rx="18" fill="#FFFFFF"/>
+    <rect x="80" y="160" width="540" height="58" rx="18" fill="#0F172A"/>
+    <text x="112" y="197" fill="#E0F2FE" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="750">knowledge_gravity_report.md</text>
+
+    <text x="112" y="260" fill="#0F172A" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">Center Topics</text>
+    <rect x="112" y="286" width="438" height="44" rx="10" fill="#EFF6FF"/>
+    <text x="134" y="314" fill="#1D4ED8" font-family="Consolas, ui-monospace, monospace" font-size="18">Index.md  center_score 92</text>
+    <rect x="112" y="342" width="392" height="44" rx="10" fill="#EFF6FF"/>
+    <text x="134" y="370" fill="#1D4ED8" font-family="Consolas, ui-monospace, monospace" font-size="18">Research Note.md  center_score 81</text>
+
+    <text x="112" y="430" fill="#0F172A" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">Review Queue</text>
+    <rect x="112" y="456" width="412" height="44" rx="10" fill="#FFF7ED"/>
+    <text x="134" y="484" fill="#C2410C" font-family="Consolas, ui-monospace, monospace" font-size="18">Draft Fragment.md  orphan + short</text>
+    <rect x="112" y="512" width="456" height="44" rx="10" fill="#FDF2F8"/>
+    <text x="134" y="540" fill="#BE185D" font-family="Consolas, ui-monospace, monospace" font-size="18">Template Copy.md  boilerplate noise</text>
+
+    <text x="112" y="604" fill="#64748B" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">Same vault, same answer. No API. No runtime LLM.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="660" y="160" width="540" height="500" rx="18" fill="#FFFFFF"/>
+    <rect x="660" y="160" width="540" height="58" rx="18" fill="#064E3B"/>
+    <text x="692" y="197" fill="#D1FAE5" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="750">knowledge_gravity_action_sheet.md</text>
+
+    <text x="692" y="260" fill="#0F172A" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">80-point cleanup loop</text>
+
+    <rect x="692" y="288" width="440" height="86" rx="14" fill="#ECFDF5"/>
+    <text x="716" y="320" fill="#065F46" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="750">Draft Fragment.md</text>
+    <text x="716" y="350" fill="#047857" font-family="Consolas, ui-monospace, monospace" font-size="17">61/100 -> add 2 links; merge or archive</text>
+
+    <rect x="692" y="396" width="440" height="86" rx="14" fill="#F0F9FF"/>
+    <text x="716" y="428" fill="#075985" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="750">Worldbuilding Core.md</text>
+    <text x="716" y="458" fill="#0369A1" font-family="Consolas, ui-monospace, monospace" font-size="17">73/100 -> split headings into subnotes</text>
+
+    <rect x="692" y="504" width="440" height="86" rx="14" fill="#FEF2F2"/>
+    <text x="716" y="536" fill="#991B1B" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="750">Template Copy.md</text>
+    <text x="716" y="566" fill="#B91C1C" font-family="Consolas, ui-monospace, monospace" font-size="17">38/100 -> exclude templates or delete</text>
+
+    <text x="692" y="628" fill="#64748B" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">Cleanup becomes a to-do list, not a vibe.</text>
+  </g>
+</svg>
