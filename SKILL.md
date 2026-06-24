@@ -70,7 +70,7 @@ Treat the analyzer output as decision support, not ground truth.
 - High center score means a note is central in the local corpus.
 - Review score means a note needs human attention, not that it is false.
 - The action sheet is a temporary cleanup workspace. It should make cleanup choices easy, not replace human judgment.
-- The 80-point feedback loop is an organization heuristic based on links, tags, headings, size, and repository share.
+- The 80-point feedback loop is an organization heuristic based on links, tags, headings, size, and repository share. Scores are capped to a practical 15-100 range; 80 is a cleanup target, not a natural breakpoint.
 - Noise/contamination candidates are items with weak text signal, suspicious names, excessive boilerplate, poor linkage, or signs that they should not be trusted as a core source yet.
 - Overgrown clusters are candidates for splitting into subtopics.
 - Orphans are candidates for linking, archiving, or merging.

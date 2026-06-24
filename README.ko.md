@@ -166,8 +166,17 @@ Knowledge Gravity Lab의 출력은 판단 보조 자료입니다. 최종 판단�
 |-- references/
 |   |-- public-boundary.md
 |   `-- existing-rights-check.md
+|-- tests/
+|   `-- test_analyze_corpus.py
 `-- assets/
     `-- knowledge-gravity-banner.svg
+```
+
+## 개발 검증
+
+```powershell
+python -m pytest -q
+python -m compileall -q scripts tests
 ```
 
 ## License

@@ -172,8 +172,17 @@ knowledge base. Treat its outputs as decision support, not ground truth.
 |-- references/
 |   |-- public-boundary.md
 |   `-- existing-rights-check.md
+|-- tests/
+|   `-- test_analyze_corpus.py
 `-- assets/
     `-- knowledge-gravity-banner.svg
+```
+
+## Development Checks
+
+```powershell
+python -m pytest -q
+python -m compileall -q scripts tests
 ```
 
 ## License

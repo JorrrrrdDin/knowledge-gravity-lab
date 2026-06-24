@@ -124,7 +124,11 @@ def collect(input_dir, skip_dirs):
     return notes
 
 
-def tfidf(notes):
+def min_df_for_notes(notes):
+    return 1 if len(notes) <= 5 else 2
+
+
+def tfidf(notes, min_df=None):
     docs = [Counter(n["tokens"]) for n in notes]
     df = Counter()
     for doc in docs:
@@ -132,10 +136,11 @@ def tfidf(notes):
     vectors = []
     norms = []
     total = max(len(notes), 1)
+    min_df = min_df_for_notes(notes) if min_df is None else min_df
     for doc in docs:
         vec = {}
         for token, count in doc.items():
-            if df[token] < 2:
+            if df[token] < min_df:
                 continue
             vec[token] = (1 + math.log(count)) * (math.log((1 + total) / (1 + df[token])) + 1)
         norm = math.sqrt(sum(v * v for v in vec.values())) or 1.0
@@ -168,7 +173,11 @@ def score_notes(notes):
             "note": 1.0,
             "template": 0.2,
         }[n["kind"]]
-        inlinks = incoming[n["stem"].lower()] + incoming[n["title"].lower()]
+        stem_key = n["stem"].lower()
+        title_key = n["title"].lower()
+        inlinks = incoming[stem_key]
+        if title_key != stem_key:
+            inlinks += incoming[title_key]
         outlinks = len(n["links"])
         inlink_score = math.log1p(inlinks) * 1.2
         outlink_score = math.log1p(outlinks) * 0.7
@@ -188,11 +197,12 @@ def score_notes(notes):
             reasons.append("orphan")
         if not n["tags"]:
             reasons.append("untagged")
-        n["review_reasons"] = ", ".join(reasons) or "check"
+        n["review_reasons"] = ", ".join(reasons)
 
 
-def build_edges(notes, max_edges_per_node=3, semantic_threshold=0.11):
-    vectors, norms = tfidf(notes)
+def build_edges(notes, vectors=None, norms=None, max_edges_per_node=3, semantic_threshold=0.11):
+    if vectors is None or norms is None:
+        vectors, norms = tfidf(notes)
     edges = {}
     name_to_idx = {}
     for i, n in enumerate(notes):
@@ -276,7 +286,7 @@ def organization_score(note, total_text_len):
         score -= 10
     if note["kind"] in BRIDGE_KINDS:
         score -= 8
-    return max(0, min(100, int(round(score))))
+    return max(15, min(100, int(round(score))))
 
 
 def split_suggestions(notes, limit=10):
@@ -289,19 +299,19 @@ def split_suggestions(notes, limit=10):
     return [n for _, n in sorted(candidates, key=lambda item: item[0], reverse=True)[:limit]]
 
 
-def unlinked_twin_suggestions(notes, edges, limit=12):
-    direct_pairs = {
+def unlinked_twin_suggestions(notes, edges, vectors=None, norms=None, limit=12):
+    existing_pairs = {
         tuple(sorted((e["source"], e["target"])))
         for e in edges
-        if e["weight"] >= 2.0
     }
-    vectors, norms = tfidf(notes)
+    if vectors is None or norms is None:
+        vectors, norms = tfidf(notes)
     suggestions = []
     for i in range(len(notes)):
         if notes[i]["kind"] in BRIDGE_KINDS:
             continue
         for j in range(i + 1, len(notes)):
-            if notes[j]["kind"] in BRIDGE_KINDS or (i, j) in direct_pairs:
+            if notes[j]["kind"] in BRIDGE_KINDS or (i, j) in existing_pairs:
                 continue
             shared_terms = sorted(set(vectors[i]) & set(vectors[j]))
             if len(shared_terms) < 4:
@@ -397,7 +407,7 @@ def write_report(out, notes, edges, groups):
     (out / "knowledge_gravity_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def write_action_sheet(out, notes, edges, groups):
+def write_action_sheet(out, notes, edges, groups, vectors=None, norms=None):
     total_text_len = sum(n["text_len"] for n in notes) or 1
     scored = sorted(
         ((organization_score(n, total_text_len), n) for n in notes),
@@ -405,7 +415,7 @@ def write_action_sheet(out, notes, edges, groups):
     )
     heavy = sorted(notes, key=lambda n: n["text_len"], reverse=True)[:12]
     split_candidates = split_suggestions(notes)
-    twin_candidates = unlinked_twin_suggestions(notes, edges)
+    twin_candidates = unlinked_twin_suggestions(notes, edges, vectors, norms)
 
     lines = [
         "# Knowledge Gravity Action Sheet",
@@ -521,7 +531,8 @@ def main():
         raise SystemExit("No Markdown/text notes found.")
 
     score_notes(notes)
-    edges = build_edges(notes)
+    vectors, norms = tfidf(notes)
+    edges = build_edges(notes, vectors, norms)
     groups = cluster(notes, edges)
 
     node_rows = [
@@ -564,11 +575,14 @@ def main():
     }
     (out / "knowledge_gravity_data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     write_report(out, notes, edges, groups)
-    write_action_sheet(out, notes, edges, groups)
+    write_action_sheet(out, notes, edges, groups, vectors, norms)
 
     print(f"notes={len(notes)}")
     print(f"edges={len(edges)}")
     print(f"clusters={len(groups)}")
+    print(f"stem_title_same={sum(1 for n in notes if n['stem'].lower() == n['title'].lower())}")
+    print("inlink_title_fallback=distinct-title-only")
+    print(f"tfidf_min_df={min_df_for_notes(notes)}")
     print(f"report={out / 'knowledge_gravity_report.md'}")
     print(f"action_sheet={out / 'knowledge_gravity_action_sheet.md'}")
 
